@@ -76,7 +76,12 @@ def Member(id=None):
         return jsonify(member), 200
   
     if request.method == 'DELETE':
-        pass
+        if id is not None:
+           member = fam.delete_member(id)
+           return jsonify({"msg":"Contact deleted successfully"}), 200 
+        else:    
+            members = fam.get_all_members()
+        return jsonify(members),200 
 
 ''' for start my app'''
 if __name__=='__main__':

@@ -21,7 +21,9 @@ class Family:
         return member
         
     def delete_member(self, id):
-        pass
+        obj = self.get_member(id)
+        self._members.remove(obj)
+
     def update_member(self, id, member):
         obj = self.get_member(id)
         obj.update(member)
